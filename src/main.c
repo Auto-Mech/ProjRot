@@ -2479,7 +2479,11 @@ void intcoord_hessian (double **FC, double *grad) {
   }
 
   for(j=1;j<brows+1;j++){
-    fprintf(hrproj_freq," %6.2f %6.2f \n",sqrt(fabs(lambda[j]))/(2 * pi * c_light_cm_s ),lambda[j]/1.0E20);
+    if (lambda[j] >= 0.0) {
+      fprintf(hrproj_freq," %6.2f %6.2f \n",sqrt(fabs(lambda[j]))/(2 * pi * c_light_cm_s ),lambda[j]/1.0E20);
+    } else {
+      fprintf(hrproj_freq," %6.2f %6.2f \n",-1.0*sqrt(fabs(lambda[j]))/(2 * pi * c_light_cm_s ),-1.0*lambda[j]/1.0E20);
+    }
   }
 
   fclose(hrproj_freq);
@@ -4031,7 +4035,11 @@ void projector_matrix_Rot(int step){
   }
 
   for(j=1;j<(int)(dim);j++){
+    if (lambda[j] >= 0.0) {
     fprintf(RTproj_freq," %6.2f  \n",sqrt(fabs(lambda[j]))/(2 * pi * c_light_cm_s ));
+    } else {
+    fprintf(RTproj_freq," %6.2f  \n",-1.0*sqrt(fabs(lambda[j]))/(2 * pi * c_light_cm_s ));
+    }
   }
 
   fclose(RTproj_freq);
@@ -4408,7 +4416,11 @@ void projector_matrix_Rot(int step){
     }
 
     for(j=1;j<3*ATOMS+1;j++){
-      fprintf(hrproj_freq," %6.2f  \n",sqrt(fabs(lambdarot[j]))/(2 * pi * c_light_cm_s ));
+      if (lambdarot[j] >= 0.0) {
+        fprintf(hrproj_freq," %6.2f  \n",sqrt(fabs(lambdarot[j]))/(2 * pi * c_light_cm_s ));
+      } else {
+        fprintf(hrproj_freq," %6.2f  \n",-1.0*sqrt(fabs(lambdarot[j]))/(2 * pi * c_light_cm_s ));
+      }
     }
 
     fclose(hrproj_freq);
