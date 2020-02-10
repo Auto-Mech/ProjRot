@@ -3227,23 +3227,26 @@ void determine_top_atoms(int step){
   double dist_CH,dist_HC,dist_CO;
   double dist_OH,dist_HO;
   double dist_OO;
+  double dist_HH;
   //  double dist_NO;
   double dist_CC;
   double dist_SH,dist_NH;
 
   dist_CH=1.5;
-  //  dist_CH=1.5;
-  //  dist_HC=1.2;
-  dist_HC=1.2;
-  //  dist_CC=2.4;
+  dist_HC=1.5;
   dist_CC=2.4;
   dist_CO=1.6;
   dist_OH=1.6;
-  dist_HO=1.2;
+  dist_HO=1.5;
   dist_OO=1.6;
   dist_SH=1.5;
   dist_NH=1.3;
-  //  dist_NO=1.6;
+  dist_HH=1.2;
+ 
+  // old values before debugging
+  // dist_HO=1.2;
+  // dist_HC=1.2;
+  // dist_NO=1.6;
 
   ItopA = (double *) malloc(numrotors*sizeof(double));
   ItopB = (double *) malloc(numrotors*sizeof(double));
@@ -3387,6 +3390,11 @@ void determine_top_atoms(int step){
 		igroupB[i][i2]=1;
 		nvar=nvar+1;
 	      }
+	      //check if H-H bond
+	      if((strcmp(atoms_data[i1].atom_name,"H")==0)&&(strcmp(atoms_data[i2].atom_name,"H")==0)&&(dist_matrix[i1][i2]<dist_HH)&&(igroupB[i][i2]!=1)&&(atomsintopB[i][i2]==1)){
+		igroupB[i][i2]=1;
+		nvar=nvar+1;
+	      }
 	    }
 	  }
 	}
@@ -3491,6 +3499,11 @@ void determine_top_atoms(int step){
 		}
 	      //check if N-O bond
 	      if((strcmp(atoms_data[i1].atom_name,"O")==0)&&(strcmp(atoms_data[i2].atom_name,"N")==0)&&(dist_matrix[i1][i2]<dist_CO)&&(igroupA[i][i2]!=1)&&(atomsintopA[i][i2]==1)){
+		igroupA[i][i2]=1;
+		nvar=nvar+1;
+	      }
+	      //check if H-H bond
+	      if((strcmp(atoms_data[i1].atom_name,"H")==0)&&(strcmp(atoms_data[i2].atom_name,"H")==0)&&(dist_matrix[i1][i2]<dist_HH)&&(igroupA[i][i2]!=1)&&(atomsintopA[i][i2]==1)){
 		igroupA[i][i2]=1;
 		nvar=nvar+1;
 	      }
