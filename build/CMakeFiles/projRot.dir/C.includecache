@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/lcrc/project/CMRP/pacc/ProjRot/src/eigen.c
+math.h
+-
+nrutil.h
+/lcrc/project/CMRP/pacc/ProjRot/src/nrutil.h
+
+/lcrc/project/CMRP/pacc/ProjRot/src/eigen2.c
+math.h
+-
+nrutil.h
+/lcrc/project/CMRP/pacc/ProjRot/src/nrutil.h
+
+/lcrc/project/CMRP/pacc/ProjRot/src/invert_matrix3.c
+math.h
+-
+nrutil.h
+/lcrc/project/CMRP/pacc/ProjRot/src/nrutil.h
+stdio.h
+-
+stdlib.h
+-
+
+/lcrc/project/CMRP/pacc/ProjRot/src/nrutil.c
+stdio.h
+-
+stddef.h
+-
+stdlib.h
+-
+
+/lcrc/project/CMRP/pacc/ProjRot/src/nrutil.h
+
+/lcrc/project/CMRP/pacc/ProjRot/src/spline.c
+nrutil.h
+/lcrc/project/CMRP/pacc/ProjRot/src/nrutil.h
+

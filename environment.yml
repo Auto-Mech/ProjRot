@@ -1,0 +1,8 @@
+name: projrot-env
+
+channels:
+    - pacchem
+
+dependencies:
+    - cmake
+    - gcc_linux-64
