@@ -1,2 +1,0 @@
-/usr/bin/ar qc libprojRot.a  CMakeFiles/projRot.dir/src/eigen2.c.o CMakeFiles/projRot.dir/src/eigen.c.o CMakeFiles/projRot.dir/src/nrutil.c.o CMakeFiles/projRot.dir/src/spline.c.o CMakeFiles/projRot.dir/src/invert_matrix3.c.o
-/usr/bin/ranlib libprojRot.a

@@ -1,5 +1,7 @@
 #! /bin/sh
 
+# Extract geom, gradient, and Hessian information from a Gaussian09 Log File
+
 #usare: ./costruisci_input.sh "IRC_OUTPUT.log" "number_of_atoms_involved"
 #starting point: first point analyzed on PES 
 #steps: number of point considered on PES
