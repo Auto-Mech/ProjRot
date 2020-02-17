@@ -3233,20 +3233,20 @@ void determine_top_atoms(int step){
   double dist_SH,dist_NH;
 
   dist_CH=1.5;
-  // dist_HC=1.2;
+  dist_HC=1.5;
   dist_CC=2.4;
   dist_CO=1.6;
   dist_OH=1.6;
-  // dist_HO=1.2;
+  dist_HO=1.5;
   dist_OO=1.6;
   dist_SH=1.5;
   dist_NH=1.3;
   dist_HH=1.2;
+ 
+  // old values before debugging
+  // dist_HO=1.2;
+  // dist_HC=1.2;
   // dist_NO=1.6;
-  
-  // setting HO,HC to 1.5 versus usual values in comments above
-  dist_HO=1.5;
-  dist_HC=1.5;
 
   ItopA = (double *) malloc(numrotors*sizeof(double));
   ItopB = (double *) malloc(numrotors*sizeof(double));
