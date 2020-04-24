@@ -1,7 +1,7 @@
 name: projrot-env
 
 channels:
-    - pacchem
+    - auto-mech
 
 dependencies:
     - cmake
