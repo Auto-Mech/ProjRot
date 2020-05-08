@@ -7,7 +7,7 @@
  * tunneling and coupling constants through RPH - SCT theories
  * internal coordinates Hessian conversion 
  *
- * Version 1 with dist cutoffs for HC, HO of 1.5 Angstrom and HH of 1.2 Angstrom
+ * Version 2 with dist cutoffs for HC, HO of 1.2 Angstrom and no HH cutoff
  *****************************************************************************/
 #include "RPHt.h"
 #include "nrutil.h"
@@ -3230,7 +3230,7 @@ void determine_top_atoms(int step){
   double dist_OO;
   double dist_CC;
   double dist_SH,dist_NH;
-  double dist_HH;
+  // double dist_HH;
   // double dist_NO;
 
   dist_CH=1.5;
@@ -3241,9 +3241,9 @@ void determine_top_atoms(int step){
   dist_OO=1.6;
   dist_SH=1.5;
   dist_NH=1.3;
-  dist_HO=1.5;  // value is 1.2 in vers2
-  dist_HC=1.5;  // value is 1.2 in vers2
-  dist_HH=1.2;  // HH cutoff only in vers1
+  dist_HO=1.2;    // value is 1.5 in vers1
+  dist_HC=1.2;    // value is 1.5 in vers1
+  // dist_HH=1.2; // value only used in vers1, value is 1.2
  
   // old value that broke NO rotors
   // dist_NO=1.6;
@@ -3390,11 +3390,11 @@ void determine_top_atoms(int step){
 		igroupB[i][i2]=1;
 		nvar=nvar+1;
 	      }
-	      //check if H-H bond
-	      if((strcmp(atoms_data[i1].atom_name,"H")==0)&&(strcmp(atoms_data[i2].atom_name,"H")==0)&&(dist_matrix[i1][i2]<dist_HH)&&(igroupB[i][i2]!=1)&&(atomsintopB[i][i2]==1)){
-		igroupB[i][i2]=1;
-		nvar=nvar+1;
-	      }
+	    //   //check if H-H bond
+	    //   if((strcmp(atoms_data[i1].atom_name,"H")==0)&&(strcmp(atoms_data[i2].atom_name,"H")==0)&&(dist_matrix[i1][i2]<dist_HH)&&(igroupB[i][i2]!=1)&&(atomsintopB[i][i2]==1)){
+		// igroupB[i][i2]=1;
+		// nvar=nvar+1;
+	    //   }
 	    }
 	  }
 	}
@@ -3502,11 +3502,11 @@ void determine_top_atoms(int step){
 		igroupA[i][i2]=1;
 		nvar=nvar+1;
 	      }
-	      //check if H-H bond
-	      if((strcmp(atoms_data[i1].atom_name,"H")==0)&&(strcmp(atoms_data[i2].atom_name,"H")==0)&&(dist_matrix[i1][i2]<dist_HH)&&(igroupA[i][i2]!=1)&&(atomsintopA[i][i2]==1)){
-		igroupA[i][i2]=1;
-		nvar=nvar+1;
-	      }
+	    //   //check if H-H bond
+	    //   if((strcmp(atoms_data[i1].atom_name,"H")==0)&&(strcmp(atoms_data[i2].atom_name,"H")==0)&&(dist_matrix[i1][i2]<dist_HH)&&(igroupA[i][i2]!=1)&&(atomsintopA[i][i2]==1)){
+		// igroupA[i][i2]=1;
+		// nvar=nvar+1;
+	    //   }
 	    }
 	  }
 	}

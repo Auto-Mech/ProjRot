@@ -1,0 +1,53 @@
+version: 2
+jobs:
+    build-and-test:
+        docker:
+            - image: continuumio/miniconda3
+        steps:
+          - checkout
+          - run:
+              name: Create conda environment
+              command: |
+                  apt-get update --yes
+                  apt-get install --yes build-essential
+                  conda env create -f environment.yml
+          - run:
+              name: Build ProjRot executables
+              command: |
+                  source activate projrot-env
+                  bash debug/build.sh
+          - run:
+              name: Test ProjRot executables
+              command: |
+                  source activate projrot-env
+                  . debug/fake-install.sh
+                  cd examples/c2h2
+                  RPHt.exe
+                  cat RTproj_freq.dat
+                  RPHt2.exe
+                  cat RTproj_freq.dat
+                  cd examples/hono
+                  RPHt.exe
+                  cat RTproj_freq.dat
+                  cat hrproj_freq.dat
+                  RPHt2.exe
+                  cat RTproj_freq.dat
+                  cat hrproj_freq.dat
+                  cd examples/oh
+                  RPHt.exe
+                  cat RTproj_freq.dat
+                  RPHt2.exe
+                  cat RTproj_freq.dat
+                  cd examples/ts
+                  RPHt.exe
+                  cat RTproj_freq.dat
+                  cat hrproj_freq.dat
+                  RPHt2.exe
+                  cat RTproj_freq.dat
+                  cat hrproj_freq.dat
+                  cd ../..
+workflows:
+    version: 2
+    build-all:
+        jobs:
+            - build-and-test
