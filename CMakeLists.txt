@@ -15,8 +15,8 @@ add_executable(RPHt.exe
 add_executable(RPHt2.exe
     ${PROJECT_SOURCE_DIR}/src/main2.c)
 
-target_link_libraries(RPHt.exe ProjRotLibs)
-target_link_libraries(RPHt2.exe ProjRotLibs)
+target_link_libraries(RPHt.exe ProjRotLibs m)
+target_link_libraries(RPHt2.exe ProjRotLibs m)
 
 install(TARGETS RPHt.exe DESTINATION bin)
 install(TARGETS RPHt2.exe DESTINATION bin)
