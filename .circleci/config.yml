@@ -26,6 +26,7 @@ jobs:
                   cat RTproj_freq.dat
                   RPHt2.exe
                   cat RTproj_freq.dat
+                  cd ../..
                   cd examples/hono
                   RPHt.exe
                   cat RTproj_freq.dat
@@ -33,11 +34,13 @@ jobs:
                   RPHt2.exe
                   cat RTproj_freq.dat
                   cat hrproj_freq.dat
+                  cd ../..
                   cd examples/oh
                   RPHt.exe
                   cat RTproj_freq.dat
                   RPHt2.exe
                   cat RTproj_freq.dat
+                  cd ../..
                   cd examples/ts
                   RPHt.exe
                   cat RTproj_freq.dat
