@@ -63,13 +63,14 @@ void ludcmp(double **a, int n, int *indx, double d)
        big=0.0;                           //Initialize for the search for largest pivot element.
        for (i=j;i<=n;i++) {               //This is i = j of equation (2.3.12) and i = j + 1 . . . N
 	 sum=a[i][j];                     //     of equation (2.3.13).
-	 for (k=1;k<j;k++) sum -= a[i][k]*a[k][j];
-	 a[i][j]=sum;
-	 if ( (dum=vv[i]*fabs(sum)) >= big) {  //Is the figure of merit for the pivot better than the best so far?
-	   big=dum;
-	   imax=i;
-	 }
-       }
+	 for (k=1;k<j;k++)
+           sum -= a[i][k]*a[k][j];
+           a[i][j]=sum;
+           if ( (dum=vv[i]*fabs(sum)) >= big) {  //Is the figure of merit for the pivot better than the best so far?
+                big=dum;
+                imax=i;
+           }
+      }
        if (j != imax) {                  //Do we need to interchange rows?
 	 for (k=1;k<=n;k++) {         //Yes, do so...
 	   dum=a[imax][k];

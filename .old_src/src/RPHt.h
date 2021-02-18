@@ -60,8 +60,6 @@ int **igroupB;
 
 
 double dt;
-double redmass_TS;
-double **incoox,**incooy,**incooz;
 double **distance;
 double **force_constants;
 double **Bmat;
@@ -71,7 +69,6 @@ double **ABLmat;
 double ***Cmat;
 double **Lcartint;
 double *Freqint;
-double *lambdaint;
 
 int bonds_number;
 int bonds_angle_number;
@@ -189,7 +186,6 @@ double *mueff_mu;
 typedef struct {
   char *atom_name;
   double atomic_mass;
-  int at_numb;
   double *ext_coord_x;
   double *ext_coord_y;
   double *ext_coord_z;
@@ -273,7 +269,7 @@ internal_coordinates_struct* internal_coordinates;
 void read_inputfile ();
 void read_Bmat_Cmat ();
 void calc_Amat ();
-void intcoord_hessian(int step, double **FC, double *grad);
+void intcoord_hessian(double **FC, double *grad);
 void determine_top_atoms ();
 void read_VaG_mueff ();
 void allocation( int dim );
@@ -293,7 +289,6 @@ double **invert_inertia_matrix( double **matrix, int dim, double **inverse_matri
 double **projector_matrix(double **P, int step);
 void projector_matrix_Rot(int step);
 void mass_weight_coordinates(int step);
-void save_displ(double *eval,double **evect,int ist,int dim,int step,FILE *fname);
 double **prod_mat(double **A, double **B, int dim);
 double **prod_mat2(double **A, int dim1, int dim2, double **B, int dim3, int dim4);
 double **invert_matrix(double **A, int dim);
