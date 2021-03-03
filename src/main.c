@@ -4268,12 +4268,11 @@ void projector_matrix_Rot(int step){
   }
 
   for(j=1;j<(int)(dim);j++){
-    fprintf(RTproj_freq," %6.2f  \n",sqrt(fabs(lambda[j]))/(2 * pi * c_light_cm_s ));
-    //if (lambda[j] >= 0.0) {
-    //fprintf(RTproj_freq," %6.2f  \n",sqrt(fabs(lambda[j]))/(2 * pi * c_light_cm_s ));
-    //} else {
-    //fprintf(RTproj_freq," %6.2f  \n",-1.0*sqrt(fabs(lambda[j]))/(2 * pi * c_light_cm_s ));
-    //}
+    if (lambda[j] >= 0.0) {
+      fprintf(RTproj_freq," %6.2f  \n",sqrt(fabs(lambda[j]))/(2 * pi * c_light_cm_s ));
+    } else {
+      fprintf(RTproj_freq," %6.2f  \n",-sqrt(fabs(lambda[j]))/(2 * pi * c_light_cm_s ));
+    }
   }
 
   fclose(RTproj_freq);
@@ -4659,12 +4658,11 @@ void projector_matrix_Rot(int step){
     }
 
     for(j=1;j<3*ATOMS+1;j++){
-      if(lambdarot[j]>0.){
-	fprintf(hrproj_freq," %6.2f  \n",sqrt(fabs(lambdarot[j]))/(2 * pi * c_light_cm_s ));
+      if(lambdarot[j] >= 0.0) {
+	    fprintf(hrproj_freq," %6.2f  \n",sqrt(fabs(lambdarot[j]))/(2 * pi * c_light_cm_s ));
       } 
       else {	
-	fprintf(hrproj_freq," %6.2f  \n",-sqrt(fabs(lambdarot[j]))/(2 * pi * c_light_cm_s ));
-	//fprintf(hrproj_freq," %6.2f  \n",-1.0);
+	    fprintf(hrproj_freq," %6.2f  \n",-sqrt(fabs(lambdarot[j]))/(2 * pi * c_light_cm_s ));
       } 
     }
  
