@@ -1,7 +1,7 @@
 # cmd: conda build . -c conda-forge
 package:
     name: projrot
-    version: "1.7.0"
+    version: "1.7.1"
 
 source:
     path: .
