@@ -21,34 +21,59 @@ jobs:
               command: |
                   source activate projrot-env
                   . debug/fake-install.sh
+                  # c2h2
                   cd examples/c2h2
                   RPHt.exe
                   cat RTproj_freq.dat
-                  RPHt2.exe
-                  cat RTproj_freq.dat
                   cd ../..
+                  # hono
                   cd examples/hono
                   RPHt.exe
                   cat RTproj_freq.dat
                   cat hrproj_freq.dat
-                  RPHt2.exe
-                  cat RTproj_freq.dat
-                  cat hrproj_freq.dat
                   cd ../..
+                  # hono
                   cd examples/oh
                   RPHt.exe
                   cat RTproj_freq.dat
-                  RPHt2.exe
-                  cat RTproj_freq.dat
                   cd ../..
+                  # ch2oc6h4ch3
+                  cd examples/ch2oc6h4ch3
+                  RPHt.exe
+                  cat RTproj_freq.dat
+                  cat hrproj_freq.dat
+                  cd ../..
+                  # ts
                   cd examples/ts
                   RPHt.exe
                   cat RTproj_freq.dat
                   cat hrproj_freq.dat
-                  RPHt2.exe
+                  cd ../..
+                  # reaction_path
+                  cd examples/reaction_path
+                  cd 1_Internal
+                  RPHt.exe
+                  cat imactint.dat
+                  cd ..
+                  cd 2_Cartesian
+                  RPHt.exe
+                  cat imactint.dat
+                  cd ../../..
+                  # rotor (aux dist files)
+                  cd examples/rotor
+                  cd 1_NoAuxFile 
+                  RPHt.exe
                   cat RTproj_freq.dat
                   cat hrproj_freq.dat
-                  cd ../..
+                  cd ..
+                  cd 2_AuxFile 
+                  RPHt.exe
+                  cat RTproj_freq.dat
+                  cat hrproj_freq.dat
+                  cd 3_PartAuxFile 
+                  RPHt.exe
+                  cat RTproj_freq.dat
+                  cat hrproj_freq.dat
 workflows:
     version: 2
     build-all:
