@@ -70,6 +70,7 @@ jobs:
                   RPHt.exe
                   cat RTproj_freq.dat
                   cat hrproj_freq.dat
+                  cd ..
                   cd 3_PartAuxFile 
                   RPHt.exe
                   cat RTproj_freq.dat
