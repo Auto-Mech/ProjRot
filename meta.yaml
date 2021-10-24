@@ -1,15 +1,15 @@
 # cmd: conda build . -c conda-forge
 package:
     name: projrot
-    version: "1.7.1"
+    version: "1.7.2"
 
 source:
     path: .
 
 requirements:
     build:
-        - conda-forge::cmake=3.21.3
+        - conda-forge::cmake=3.20.2
         - conda-forge::gcc_linux-64=7.5.0
     run:
-        - conda-forge::cmake=3.21.3
+        - conda-forge::cmake=3.20.2
         - conda-forge::gcc_linux-64=7.5.0
